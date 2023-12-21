@@ -6,12 +6,22 @@ from os import getenv
 
 class Test_db(unittest.TestCase):
     """This thing start today"""
+    
+    def setUp(self):
+        # Set up code that runs before each test
+        self.host = getenv("HBNB_MYSQL_HOST")
+        self.user = getenv("HBNB_MYSQL_USER")
+        self.password = getenv("HBNB_MYSQL_PWD")
+        self.database = getenv("HBNB_MYSQL_DB")
+
     def test_dbs(self):
-        con = mysql.connector.connect(host=getenv("HBNB_MYSQL_HOST"),
+        if not all([self.host, self.user, self.password, self.database]):
+            self.skipTest("Missing requirement")
+        con = mysql.connector.connect(host=self.host,
                                           port=3306,
-                                          user=getenv("HBNB_MYSQL_USER"),
-                                          passwd=getenv("HBNB_MYSQL_PWD"),
-                                          db=getenv("HBNB_MYSQL_DB"),
+                                          user=self.host,
+                                          passwd=self.password,
+                                          db=self.database,
                                           charset="utf8")
         cur = con.cursor()
         cur.execute("SELECT * FROM states")
