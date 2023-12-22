@@ -124,13 +124,13 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
         new_instance = HBNBCommand.classes[new[0]]()
+        som = ["number_rooms", "number_bathrooms", "max_guest", "price_by_night"] 
         for x in range(1, len(new), 2):
             attr_ins = new[x]
-            attr_val = new[x+1]
-
+            attr_val = new[x + 1]
             if attr_ins in ["latitude", "longitude"]:
                 attr_val = round(float(attr_val), 6)
-            if attr_ins in ["number_rooms", "number_bathrooms", "max_guest", "price_by_night"]:
+            if attr_ins in som:
                 attr_val = int(attr_val)
             elif attr_ins  == "name":
                 attr_val = attr_val.replace("_", " ")
