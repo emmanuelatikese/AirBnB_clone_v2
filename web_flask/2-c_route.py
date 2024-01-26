@@ -11,6 +11,7 @@ app.config['strict_slashes=False'] = False
 
 @app.route('/c/<text>')
 def rite_txt(text):
+    text = text.replace("_", " ")
     return ('C %s' % escape(text))
 
 
