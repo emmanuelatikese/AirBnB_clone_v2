@@ -4,6 +4,8 @@ from models.base_model import BaseModel
 from sqlalchemy.orm import relationship
 from sqlalchemy import Column, String, ForeignKey
 from os import getenv
+
+
 class City(BaseModel):
     """ The city class, contains state ID and name """
     __tablename__ = 'cities'
