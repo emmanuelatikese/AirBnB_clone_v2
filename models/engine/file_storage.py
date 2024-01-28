@@ -13,7 +13,8 @@ class FileStorage:
         if cls is None:
             return FileStorage.__objects
         else:
-            new_fil = {k: v for k, v in self.__objects.items() if type(v) is cls}
+            new_fil = {k: v for k, v
+                       in self.__objects.items() if type(v) is cls}
             return new_fil
 
     def new(self, obj):
@@ -55,7 +56,7 @@ class FileStorage:
             with open(FileStorage.__file_path, 'r') as f:
                 temp = json.load(f)
                 for key, val in temp.items():
-                        self.all()[key] = classes[val['__class__']](**val)
+                    self.all()[key] = classes[val['__class__']](**val)
         except FileNotFoundError:
             pass
 
