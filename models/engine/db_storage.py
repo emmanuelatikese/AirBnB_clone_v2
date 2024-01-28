@@ -77,11 +77,11 @@ class DBStorage:
                 type(obj).id == obj.id).delete()
 
         def reload(self):
-        '''This is here to reload'''
-        Base.metadata.create_all(self.__engine)
-        sess_fact = sessionmaker(bind=self.__engine,
+            '''This is here to reload'''
+            Base.metadata.create_all(self.__engine)
+            sess_fact = sessionmaker(bind=self.__engine,
                                        expire_on_commit=False)
-        self.__session = scoped_session(sess_fact)()
+            self.__session = scoped_session(sess_fact)()
 
         def close():
             self.__session.close()
