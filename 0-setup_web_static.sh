@@ -5,7 +5,7 @@ if ! command -v nginx &> /dev/null; then
 	sudo apt-get install -y nginx
 fi
 
-if [! -d "/data/"]; then
+if [ ! -d "/data/" ]; then
 	sudo mkdir -p /data/web_static/{releases/test,shared}
 	sudo touch /data/web_static/releases/test/index.html
 
