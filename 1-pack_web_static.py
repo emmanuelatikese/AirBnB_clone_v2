@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-'''fabric on the first try'''
-
 from os import path, makedirs
 from fabric.api import local
 from datetime import datetime
@@ -8,6 +6,7 @@ from datetime import datetime
 
 def do_pack():
 	'''This is all about creating achieve'''
+
     try:
         if not path.exists("versions"):
             makedirs("versions")
